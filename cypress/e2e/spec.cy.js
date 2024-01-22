@@ -15,14 +15,6 @@ it('expands the element if needed', () => {
   // we don't know if the section is expanded or not
   // find the "Expand" button and click it
   // but only if the section is not expanded already
-  cy.get('section')
-    .invoke('attr', 'aria-expanded')
-    .if((expanded) => expanded === 'false')
-    .then(() => {
-      cy.log('**open the section**')
-      cy.contains('button', 'Expand').click()
-    })
-    .else('**section is already expanded**')
   // the section should be visible now
   cy.get('section').should('be.visible')
 })
